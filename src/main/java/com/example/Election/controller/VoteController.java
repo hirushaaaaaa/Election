@@ -5,10 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/votes")
+@RequestMapping("/api/votes") // Updated path to match Postman request
 public class VoteController {
 
     @Autowired

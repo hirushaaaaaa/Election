@@ -13,7 +13,6 @@ public class VoteService {
     @Autowired
     private VoteRepository voteRepository;
 
-    // Update this method signature to include electionId
     public boolean castVote(Integer voterId, Integer candidateId, Integer electionId, boolean voteStatus) {
         if (voteRepository.existsByVoterIdAndCandidateIdAndElectionId(voterId, candidateId, electionId)) {
             return false; // Already voted

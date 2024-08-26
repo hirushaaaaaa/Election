@@ -1,42 +1,32 @@
 package com.example.Election.controller;
 
-import com.example.Election.data.Election;
-import com.example.Election.data.ElectionRepository;
+import com.example.Election.service.ElectionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/elections")
 public class ElectionController {
 
     @Autowired
-    private ElectionRepository electionRepository;
+    private ElectionService electionService;
+
+    @PostMapping("/start")
+    public ResponseEntity<String> startElection() {
+        String result = electionService.startElection();
+        return ResponseEntity.ok(result);
+    }
+
+    @GetMapping("/results")
+    public ResponseEntity<?> getElectionResults() {
+        return ResponseEntity.ok(electionService.getElectionResults());
+    }
 
     @GetMapping
-    public List<Election> getAllElections() {
-        return electionRepository.findAll();
-    }
-
-    @GetMapping("/{id}")
-    public Election getElectionById(@PathVariable Integer id) {
-        return electionRepository.findById(id).orElse(null);
-    }
-
-    @PostMapping
-    public Election createElection(@RequestBody Election election) {
-        return electionRepository.save(election);
-    }
-
-    @PutMapping("/{id}")
-    public Election updateElection(@PathVariable Integer id, @RequestBody Election election) {
-        election.setElectionId(id);
-        return electionRepository.save(election);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteElection(@PathVariable Integer id) {
-        electionRepository.deleteById(id);
+    public ResponseEntity<?> getAllElections() {
+        // Example method for getting all elections (if you have such a method)
+        return ResponseEntity.ok("Retrieve all elections");
     }
 }
