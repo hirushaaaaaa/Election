@@ -1,43 +1,56 @@
 package com.example.Election.data;
 
 import jakarta.persistence.*;
-import java.util.Date;
 
 @Entity
-@Table(name = "Vote")
+@Table(name = "vote")
 public class Vote {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "vote_id")
     private Integer voteId;
 
-    @Column(nullable = false)
-    private Integer voterId;
-
-    @Column(nullable = false)
-    private Integer candidateId;
-
-    @Column(nullable = false)
+    @Column(name = "election_id", nullable = false)
     private Integer electionId;
 
-    @Column(nullable = false)
-    private Date voteTimestamp;
+    @Column(name = "candidate_id", nullable = false)
+    private Integer candidateId;
 
-    @Column(nullable = false)
-    private Boolean voterStatus;
-
-    // Default constructor
-    public Vote() {}
-
-    // Constructor with fields
-    public Vote(Integer voteId, Integer voterId, Integer candidateId, Integer electionId, Date voteTimestamp, Boolean voterStatus) {
-        this.voteId = voteId;
-        this.voterId = voterId;
-        this.candidateId = candidateId;
-        this.electionId = electionId;
-        this.voteTimestamp = voteTimestamp;
-        this.voterStatus = voterStatus;
-    }
+    @Column(name = "voter_id", nullable = false)
+    private Integer voterId;
 
     // Getters and Setters
+
+    public Integer getVoteId() {
+        return voteId;
+    }
+
+    public void setVoteId(Integer voteId) {
+        this.voteId = voteId;
+    }
+
+    public Integer getElectionId() {
+        return electionId;
+    }
+
+    public void setElectionId(Integer electionId) {
+        this.electionId = electionId;
+    }
+
+    public Integer getCandidateId() {
+        return candidateId;
+    }
+
+    public void setCandidateId(Integer candidateId) {
+        this.candidateId = candidateId;
+    }
+
+    public Integer getVoterId() {
+        return voterId;
+    }
+
+    public void setVoterId(Integer voterId) {
+        this.voterId = voterId;
+    }
 }

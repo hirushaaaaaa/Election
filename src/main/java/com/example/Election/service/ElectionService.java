@@ -1,20 +1,35 @@
 package com.example.Election.service;
 
-import com.example.Election.data.CandidateVotes;
+import com.example.Election.data.Election;
+import com.example.Election.data.ElectionRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ElectionService {
 
-    public String startElection() {
-        return "Election started successfully";
+    @Autowired
+    private ElectionRepository electionRepository;
+
+    public List<Election> getAllElections() {
+        return electionRepository.findAll();
     }
 
-    public List<CandidateVotes> getElectionResults() {
-        List<CandidateVotes> results = new ArrayList<>();
-        return results;
+    public Election getElectionById(Integer electionId) {
+        return electionRepository.findById(electionId).orElse(null);
+    }
+
+    public Election createElection(Election election) {
+        return electionRepository.save(election);
+    }
+
+    public Election updateElection(Election election) {
+        return electionRepository.save(election);
+    }
+
+    public void deleteElection(Integer electionId) {
+        electionRepository.deleteById(electionId);
     }
 }

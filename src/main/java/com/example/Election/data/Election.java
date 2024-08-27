@@ -1,27 +1,25 @@
 package com.example.Election.data;
 
+
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Election")
+@Table(name = "election")
 public class Election {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "electionId")
+    @Column(name = "election_id")
     private Integer electionId;
 
-    @Column(name = "electionName")
+    @Column(name = "election_name", nullable = false)
     private String electionName;
 
-    @Column(name = "startDate")
-    private LocalDateTime startDate;
+    @Column(name = "year", nullable = false)
+    private Integer year;
 
-    @Column(name = "endDate")
-    private LocalDateTime endDate;
+    // Getters and Setters
 
-    // Getters and setters
     public Integer getElectionId() {
         return electionId;
     }
@@ -38,19 +36,11 @@ public class Election {
         this.electionName = electionName;
     }
 
-    public LocalDateTime getStartDate() {
-        return startDate;
+    public Integer getYear() {
+        return year;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
+    public void setYear(Integer year) {
+        this.year = year;
     }
 }
