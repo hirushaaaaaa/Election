@@ -18,7 +18,7 @@ public class ElectionController {
         return electionService.getAllElections();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("elections/{id}")
     public Election getElectionById(@PathVariable Integer id) {
         return electionService.getElectionById(id);
     }
@@ -33,7 +33,7 @@ public class ElectionController {
         return electionService.updateElection(election);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("elections/{id}")
     public void deleteElection(@PathVariable Integer id) {
         electionService.deleteElection(id);
     }
