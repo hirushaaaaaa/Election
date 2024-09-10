@@ -38,4 +38,10 @@ public class VoteController {
     public void deleteVote(@PathVariable Integer id) {
         voteService.deleteVote(id);
     }
+
+    @GetMapping("/test")
+    public String test() {
+        return "Controller is working!";
+    }
+
 }
