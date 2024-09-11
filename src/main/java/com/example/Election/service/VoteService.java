@@ -1,9 +1,9 @@
 package com.example.Election.service;
 
-import com.example.Election.data.Vote;
 import com.example.Election.data.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.example.Election.data.Vote;
 
 import java.util.List;
 
@@ -17,8 +17,8 @@ public class VoteService {
         return voteRepository.findAll();
     }
 
-    public Vote getVoteById(Integer voteId) {
-        return voteRepository.findById(voteId).orElse(null);
+    public Vote getVoteById(Integer id) {
+        return voteRepository.findById(id).orElse(null);
     }
 
     public Vote createVote(Vote vote) {
@@ -29,7 +29,7 @@ public class VoteService {
         return voteRepository.save(vote);
     }
 
-    public void deleteVote(Integer voteId) {
-        voteRepository.deleteById(voteId);
+    public void deleteVote(Integer id) {
+        voteRepository.deleteById(id);
     }
 }

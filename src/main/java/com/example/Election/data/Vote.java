@@ -11,14 +11,11 @@ public class Vote {
     @Column(name = "vote_id")
     private Integer voteId;
 
-    @Column(name = "election_id", nullable = false)
-    private Integer electionId;
-
     @Column(name = "candidate_id", nullable = false)
     private Integer candidateId;
 
     @Column(name = "voter_id", nullable = false)
-    private Integer voterId;
+    private String voterId;
 
     // Getters and Setters
 
@@ -30,14 +27,6 @@ public class Vote {
         this.voteId = voteId;
     }
 
-    public Integer getElectionId() {
-        return electionId;
-    }
-
-    public void setElectionId(Integer electionId) {
-        this.electionId = electionId;
-    }
-
     public Integer getCandidateId() {
         return candidateId;
     }
@@ -46,11 +35,11 @@ public class Vote {
         this.candidateId = candidateId;
     }
 
-    public Integer getVoterId() {
+    public String getVoterId() {
         return voterId;
     }
 
-    public void setVoterId(Integer voterId) {
+    public void setVoterId(String voterId) {
         this.voterId = voterId;
     }
 }

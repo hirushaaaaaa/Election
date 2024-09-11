@@ -43,5 +43,4 @@ public class VoteController {
     public String test() {
         return "Controller is working!";
     }
-
 }
