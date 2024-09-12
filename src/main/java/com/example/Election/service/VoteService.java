@@ -45,4 +45,8 @@ public class VoteService {
     public boolean hasVoted(String voterId) {
         return voteRepository.existsByVoterId(voterId);
     }
+
+    public void clearVotes() {
+        voteRepository.deleteAll();
+    }
 }

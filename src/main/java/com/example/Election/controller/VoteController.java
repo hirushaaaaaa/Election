@@ -43,9 +43,9 @@ public class VoteController {
         return voteService.updateVote(vote);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteVote(@PathVariable Integer id) {
-        voteService.deleteVote(id);
+    @DeleteMapping("/clear")
+    public void clearVotes() {
+        voteService.clearVotes();
     }
 
     @GetMapping("/test")
