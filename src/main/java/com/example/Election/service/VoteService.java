@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.example.Election.data.Vote;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class VoteService {
@@ -31,5 +33,16 @@ public class VoteService {
 
     public void deleteVote(Integer id) {
         voteRepository.deleteById(id);
+    }
+
+    // Method to count votes by candidate
+    public Map<Integer, Long> countVotesByCandidate() {
+        List<Vote> votes = voteRepository.findAll();
+        return votes.stream()
+                .collect(Collectors.groupingBy(Vote::getCandidateId, Collectors.counting()));
+    }
+
+    public boolean hasVoted(String voterId) {
+        return voteRepository.existsByVoterId(voterId);
     }
 }
