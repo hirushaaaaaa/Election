@@ -1,7 +1,7 @@
-package com.example.Election.controller;
+package com.example.election.controller;
 
-import com.example.Election.data.Vote;
-import com.example.Election.service.VoteService;
+import com.example.election.data.Vote;
+import com.example.election.service.VoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

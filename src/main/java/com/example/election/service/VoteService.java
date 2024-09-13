@@ -1,9 +1,9 @@
-package com.example.Election.service;
+package com.example.election.service;
 
-import com.example.Election.data.VoteRepository;
+import com.example.election.data.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.Election.data.Vote;
+import com.example.election.data.Vote;
 
 import java.util.List;
 import java.util.Map;

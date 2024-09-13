@@ -1,4 +1,4 @@
-package com.example.Election.data;
+package com.example.election.data;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
